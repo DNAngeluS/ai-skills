@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "matcher": "startup|resume|clear|compact",
+        "hooks": [{ "type": "command", "command": "python3 -I \"${CLAUDE_PLUGIN_ROOT}/hooks/layer_hook.py\" session-start" }] }
+    ],
+    "PreCompact": [
+      { "hooks": [{ "type": "command", "command": "python3 -I \"${CLAUDE_PLUGIN_ROOT}/hooks/layer_hook.py\" pre-compact" }] }
+    ]
+  }
+}

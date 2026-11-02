@@ -5,6 +5,7 @@ Hard cap 6 KB while tiny. A router points; it does not explain. Fill every place
 
 ```markdown
 # AGENTS.md
+<!-- dna:layer v1 -->
 
 <One or two sentences: what this project is and who it is for.>
 

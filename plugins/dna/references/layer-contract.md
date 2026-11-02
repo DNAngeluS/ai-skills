@@ -109,8 +109,8 @@ carry their own layer; the domain itself still follows the same table.
 
 | Event | Allowed | Forbidden |
 |---|---|---|
-| SessionStart | Read-only. Print `.memory/INDEX.md` head and `status.md`, byte-capped to the session-start budget. | Any write; unbounded output |
-| PreCompact, Stop | Remind or prompt the agent to run `save-state`. May run the validator read-only. | Writing, committing, or running `save-state` unattended |
+| SessionStart | Read-only, and only in a node whose nearest `AGENTS.md` carries `<!-- dna:layer v1 -->` in its first 2 KB and which has `.agents/status.md` (opt-in; a nearer unmarked `AGENTS.md` means stay silent). Print `.memory/INDEX.md` head and `status.md`, byte-capped to the session-start budget. | Any write; unbounded output |
+| PreCompact | Remind (systemMessage) to run `save-state` when work outside the layer is newer than `status.md`. No Stop hook: it fires every turn. May run the validator read-only. | Writing, committing, or running `save-state` unattended |
 
 Reason: skills run with a person present who can undo; a hook can fire unattended. Revisit once the
 skills are stable. Hooks live in `plugins/dna/hooks/`.
