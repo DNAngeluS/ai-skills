@@ -11,6 +11,10 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
+- Skill `dna:handoff` (living + directional handoffs; write and consume modes; `references/templates.md`),
+  draft; one independent subagent run (write to a child node, consume, archive, reply) passed and its
+  ambiguities were fixed; trigger check 3/4 on natural prompts (the 4th is the intended throwaway-doc case). Distinct from the third-party `handoff` skill, which writes a throwaway doc to temp.
+
 - `.gitignore`: excludes the owner's installed third-party skills (`.agents/skills/`, `.claude/`,
   `skills-lock.json`) per the no-vendoring decision; first commit of the repo.
 - Skills `dna:status` (read-only recall) and `dna:save-state` (write half, with `references/routing.md`
@@ -19,8 +23,10 @@ Entries record **what changed**; the reasoning behind a decision goes in
   save-state); their feedback was folded into both SKILL.md files (tiny quick path, epic
   threshold, domain handling, validator summary, budget-overflow rule). Description trigger loops
   (3 iterations each) gave NO signal: every positive query scored 0/3 triggers in all iterations,
-  so the original descriptions are kept and the proposed rewrites were not applied. Not done:
-  a working trigger measurement, hooks. Decision on commits in CONTEXT.md. Removed
+  so the original descriptions are kept and the proposed rewrites were not applied. A real check
+  afterwards (`claude -p --plugin-dir plugins/dna`, 5 prompts) triggered the right skill 4/4 on
+  natural requests and nothing on a git-status near-miss, so the loop harness was the problem,
+  not the descriptions. Not done: broader trigger set, hooks. Decision on commits in CONTEXT.md. Removed
   `plugins/dna/skills/.gitkeep`.
 
 ### Added
