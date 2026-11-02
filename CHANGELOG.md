@@ -11,7 +11,7 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
-- `dna` plugin version 0.0.1 -> 0.1.0: ten skills (status, save-state, handoff, agentize, domain-init, crew, ship, plan, export-context, review-board) plus opt-in hooks. Installed plugins only update when this number changes, so bump it on each release.
+- `dna` plugin version 0.0.1 -> 0.1.0: ten skills (status, save-state, handoff, agentize, domain-init, crew, ship, plan, export-context, review-board) plus opt-in hooks. Installed plugins only update when this number changes, so bump it on each release. Bumped in both `plugin.json` and the `marketplace.json` entry; keep them equal.
 
 - `AGENTS.md` carries the `<!-- dna:layer v1 -->` marker so the hooks act in this repo; `CLAUDE.md` trimmed under the tiny budget and its stale install instructions (old top-level `skills/` symlinks) replaced with `--plugin-dir` / marketplace install.
 
