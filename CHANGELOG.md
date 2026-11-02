@@ -11,6 +11,10 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
+- Trigger check for `dna:agentize` and `dna:domain-init` with `claude -p --plugin-dir`: 4/4 natural prompts triggered the right skill; 2 near-miss prompts (add a README, explain the repo) triggered none.
+
+- README rewritten for the marketplace layout (`plugins/dna/`, install commands, the dna layer, hooks opt-in); the old top-level `skills/` text is gone.
+
 - Hooks `plugins/dna/hooks/` (`hooks.json` + stdlib `layer_hook.py`), opt-in: they act only where the nearest `AGENTS.md` carries `<!-- dna:layer v1 -->` (first 2 KB) and `.agents/status.md` exists; an unmarked nearer `AGENTS.md` means silence, so no tokens are spent in non-dna projects. SessionStart preloads `.memory/INDEX.md` head and `status.md`, capped at 8 KB. PreCompact shows a `systemMessage` reminder to run `/dna:save-state` when non-layer work is newer than `status.md`. No Stop hook (fires every turn). Never writes or blocks, always exits 0. `agentize` and `domain-init` now write the marker; the layer contract documents it. Verified by piping hook JSON, `claude plugin validate`, and a live `claude -p --plugin-dir` run where the model answered from the preloaded status. Existing layers (Crytek, AI, etc.) need the marker line added to opt in.
 
 - Skill `dna:domain-init`: domain layer for a folder of projects (router `AGENTS.md`, status table with one row per child, `.memory/INDEX.md` and one card per child). Reads children, never writes into them; reuses agentize's no-loss rules. One independent run on a scratch copy of a six-child folder (children untouched by checksum, validator FAIL to OK); findings folded in (child and grouping detection, dormancy vs one-row-per-child, layer classes, card header and unknown-purpose rule, existing INDEX handling).
