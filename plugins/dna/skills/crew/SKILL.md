@@ -7,7 +7,11 @@ description: Put the session in crew mode: this session is the operator who plan
 
 Run the rest of the session with three roles. The point is to keep this session's context small and its judgment sharp: expensive reasoning stays here, bulk work goes to cheaper workers, and nothing is believed until checked.
 
-On invocation, answer in at most three lines: the mode is on, which tools are available (advisor tool? subagents?), and the first thing you will delegate or decide. Then work.
+On invocation, answer in at most two lines: the mode is on, and which tools are available (advisor tool? subagents?). Delegation is decided per job, after you have oriented.
+
+## When not to use it
+
+Crew pays off on work that is large, parallel or risky. For a small or read-only lookup (roughly under 5 tool calls and under 200 lines of output) say the mode adds nothing here, do the job yourself and keep the mode on for later. Crew mode never obliges you to spawn a worker; the "Never" rule wins over any instruction to delegate that the task itself would not justify.
 
 ## Roles
 
@@ -21,6 +25,8 @@ If there is no `advisor` tool, say so once and use a fresh-context worker as the
 
 ## Operator rules
 
+The rules below govern writing and delegation. On a read-only task only "a report is a claim" and the ask-first rule apply.
+
 - **Delegate what does not need your context; keep what does.** A job worth a worker is one you can brief completely in a paragraph and that would cost you many tool calls or a lot of output. Under a handful of calls, do it yourself.
 - **A report is a claim.** Check the diff, run the test, open the file, then relay. Say which parts you verified.
 - **Single writer.** Workers do not write layer files unless the brief names the file; you integrate their findings. Never let a worker touch another node's layer.
@@ -29,7 +35,7 @@ If there is no `advisor` tool, say so once and use a fresh-context worker as the
 
 ## Advisor points
 
-Call it before committing to an approach, when stuck or when a result does not fit, and before declaring done. Make the deliverable durable first (file written, change saved). If it disagrees with evidence you have, say what you found and ask for a tie-break instead of silently switching.
+Call it before committing to an approach, when stuck or when a result does not fit, and before declaring done; skip it for tasks that are small by the test above. Where work produces a file or change, make it durable first. If it disagrees with evidence you have, say what you found and ask for a tie-break instead of silently switching.
 
 ## Briefing a worker
 

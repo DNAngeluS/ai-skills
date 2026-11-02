@@ -81,17 +81,18 @@ here counts as an incomplete change.
 
 | Skill | Status | Purpose | Requires |
 |---|---|---|---|
-| `dna:status` | draft | Read-only recall of a project/domain state from the layer (`plugins/dna/skills/status`) | layer contract |
-| `dna:save-state` | draft | Lands session results into status/epic/handoff/memory; commits only on request (`plugins/dna/skills/save-state`) | layer contract |
-| `dna:handoff` | draft | Write/consume living and directional handoffs in `.agents/handoffs/`; single writer, receiver archives (`plugins/dna/skills/handoff`) | layer contract |
-| `dna:agentize` | draft | Add the tiny layer to an existing project: router AGENTS.md (original archived), CLAUDE.md pointer, seeded status (`plugins/dna/skills/agentize`) | layer contract |
-| `dna:domain-init` | draft | Domain layer for a folder of projects: status table, child cards, index; read-only on children (`plugins/dna/skills/domain-init`) | layer contract, agentize |
-| `dna:crew` | draft | Session operating mode: operator verifies, advisor at fixed points, cheap workers on bounded jobs (`plugins/dna/skills/crew`) | none |
+| `dna:status` | tested | Read-only recall of a project/domain state from the layer (`plugins/dna/skills/status`) | layer contract |
+| `dna:save-state` | tested | Lands session results into status/epic/handoff/memory; commits only on request (`plugins/dna/skills/save-state`) | layer contract |
+| `dna:handoff` | tested | Write/consume living and directional handoffs in `.agents/handoffs/`; single writer, receiver archives (`plugins/dna/skills/handoff`) | layer contract |
+| `dna:agentize` | tested | Add the tiny layer to an existing project: router AGENTS.md (original archived), CLAUDE.md pointer, seeded status (`plugins/dna/skills/agentize`) | layer contract |
+| `dna:domain-init` | tested | Domain layer for a folder of projects: status table, child cards, index; read-only on children (`plugins/dna/skills/domain-init`) | layer contract, agentize |
+| `dna:crew` | tested | Session operating mode: operator verifies, advisor at fixed points, cheap workers on bounded jobs (`plugins/dna/skills/crew`) | none |
 
 Build order for the rest: [ROADMAP.md](ROADMAP.md). Plugins: `dna`, ext `mattpocock-skills`.
 
-**Status values:** `active` (in daily use), `draft` (works, still being shaped),
-`archived` (kept for reference, not installed).
+**Status values:** `draft` (written and trigger-checked), `tested` (independent run done and its
+findings folded in), `stable` (used on real work several times with no fixes needed), `archived`
+(kept for reference, not installed). `active` is accepted as a synonym of `stable`.
 
 ## Candidates to migrate
 

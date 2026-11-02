@@ -11,7 +11,9 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
-- Skill `dna:crew`: operator/advisor/workers operating mode (roles table, verification and single-writer rules, advisor points, worker brief shape, cost guidance without hard caps). Invocation counts as the user's opt-in to subagents; it does not widen commit/push permission. Writes nothing. Draft; trigger check only.
+- Skill-index status values redefined as draft / tested / stable / archived; the six `dna` skills with an independent run are marked `tested`.
+
+- Skill `dna:crew`: operator/advisor/workers operating mode (roles table, verification and single-writer rules, advisor points, worker brief shape, cost guidance without hard caps). Invocation counts as the user's opt-in to subagents; it does not widen commit/push permission. Writes nothing. Trigger check 3/3. One independent run (a small read-only lookup) found the mode too heavy for it; folded in: a "when not to use" section with a 5-call/200-line test, a two-line invocation answer, advisor skipped for small tasks, and which rules apply to read-only work. The advisor-fallback path is untested.
 
 - Trigger check for `dna:agentize` and `dna:domain-init` with `claude -p --plugin-dir`: 4/4 natural prompts triggered the right skill; 2 near-miss prompts (add a README, explain the repo) triggered none.
 
