@@ -87,6 +87,10 @@ here counts as an incomplete change.
 | `dna:agentize` | tested | Add the tiny layer to an existing project: router AGENTS.md (original archived), CLAUDE.md pointer, seeded status (`plugins/dna/skills/agentize`) | layer contract |
 | `dna:domain-init` | tested | Domain layer for a folder of projects: status table, child cards, index; read-only on children (`plugins/dna/skills/domain-init`) | layer contract, agentize |
 | `dna:crew` | tested | Session operating mode: operator verifies, advisor at fixed points, cheap workers on bounded jobs (`plugins/dna/skills/crew`) | none |
+| `dna:ship` | tested | Commit (detailed, changelog included); push/PR/merge/cleanup only on explicit word (`plugins/dna/skills/ship`) | none |
+| `dna:plan` | tested | Draft-first POC plan: epic + task table, cards only when delegating (`plugins/dna/skills/plan`) | layer contract |
+| `dna:export-context` | tested | Portable briefing for an external chat; secrets stripped, sensitive nodes need outline OK (`plugins/dna/skills/export-context`) | none |
+| `dna:review-board` | tested | Plan/design review by advisor + cheap lens reviewers, one ranked verdict (`plugins/dna/skills/review-board`) | crew |
 
 Build order for the rest: [ROADMAP.md](ROADMAP.md). Plugins: `dna`, ext `mattpocock-skills`.
 
