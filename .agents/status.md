@@ -12,5 +12,5 @@
 ## Last session (2026-11-02)
 - Built and pushed all skills: status, save-state, handoff (454fa78, 727e495), agentize (2290a28), domain-init (f83c264), opt-in hooks (00443b0), crew (dce2fb7, 2225c3f), ship/plan/export-context/review-board (c2285d4).
 - Each skill had at least one independent run on scratch copies; the CONTEXT.md index marks them `tested`. None is `stable` yet (needs real use).
-- First real use: `/dna:status` and `/dna:save-state` run on this repo from the installed marketplace copy.
+- First real use: `/dna:status` and `/dna:save-state` run on this repo (from a stale `dna@synced` copy of the plugin; the real `dna@dnangelus` marketplace install was done afterwards).
 - Added the hook marker to this repo's AGENTS.md and trimmed CLAUDE.md to clear the validator.
