@@ -1,4 +1,5 @@
 # AGENTS.md
+<!-- dna:layer v1 -->
 
 Canonical rules for **any** LLM agent (Claude Code, Codex, Gemini CLI, Cursor, …) working in
 this repository. Provider-specific files (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`) must not
