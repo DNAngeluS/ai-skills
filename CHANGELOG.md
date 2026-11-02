@@ -11,6 +11,8 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
+- Skill `dna:crew`: operator/advisor/workers operating mode (roles table, verification and single-writer rules, advisor points, worker brief shape, cost guidance without hard caps). Invocation counts as the user's opt-in to subagents; it does not widen commit/push permission. Writes nothing. Draft; trigger check only.
+
 - Trigger check for `dna:agentize` and `dna:domain-init` with `claude -p --plugin-dir`: 4/4 natural prompts triggered the right skill; 2 near-miss prompts (add a README, explain the repo) triggered none.
 
 - README rewritten for the marketplace layout (`plugins/dna/`, install commands, the dna layer, hooks opt-in); the old top-level `skills/` text is gone.

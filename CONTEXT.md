@@ -86,6 +86,7 @@ here counts as an incomplete change.
 | `dna:handoff` | draft | Write/consume living and directional handoffs in `.agents/handoffs/`; single writer, receiver archives (`plugins/dna/skills/handoff`) | layer contract |
 | `dna:agentize` | draft | Add the tiny layer to an existing project: router AGENTS.md (original archived), CLAUDE.md pointer, seeded status (`plugins/dna/skills/agentize`) | layer contract |
 | `dna:domain-init` | draft | Domain layer for a folder of projects: status table, child cards, index; read-only on children (`plugins/dna/skills/domain-init`) | layer contract, agentize |
+| `dna:crew` | draft | Session operating mode: operator verifies, advisor at fixed points, cheap workers on bounded jobs (`plugins/dna/skills/crew`) | none |
 
 Build order for the rest: [ROADMAP.md](ROADMAP.md). Plugins: `dna`, ext `mattpocock-skills`.
 
