@@ -32,6 +32,7 @@ NAMING = {
 }
 DIRECTIONAL = re.compile(r"^(to|from)-.*?(\d{4}-\d{2}-\d{2})")
 STATUS_OK = {"todo", "in-progress", "blocked", "done"}
+STATUS_LEGACY = {"drafted", "draft", "planned", "open", "fixed", "superseded", "in-flight", "in-review", "active", "parked", "closed", "complete", "completed", "wip", "pending", "not-started", "started", "ready"}
 WHEN = re.compile(r"^\s*<!--\s*when:", re.I)
 
 
@@ -98,9 +99,24 @@ def check(root, r):
 
     for rel in (".agents/epics", ".agents/tasks"):
         for p in md_files(root / rel):
-            m = re.search(r"\*\*Status:\*\*\s*([A-Za-z-]+)", p.read_text(encoding="utf-8", errors="replace"))
-            if m and m.group(1).lower() not in STATUS_OK:
-                r.fail(p.relative_to(root), f"status '{m.group(1)}' not in {sorted(STATUS_OK)}")
+            m = re.search(r"\*\*Status:\*\*[ \t]*([^\n]*)", p.read_text(encoding="utf-8", errors="replace"))
+            if not m:
+                continue
+            val = re.split(r"\s+[·|]\s+|\s+[-—]\s+|[;(]", m.group(1).strip().strip("*`_"), maxsplit=1)[0]
+            words = [w.lower().strip("*`_,:") for w in val.split()]
+            if not words or not words[0][:1].isalpha():
+                continue
+            cands = [words[0], "-".join(words[:2])]
+            if any(c in STATUS_OK for c in cands):
+                continue
+            leg = next((c for c in cands if c in STATUS_LEGACY), None)
+            if leg:
+                r.warn(p.relative_to(root), f"legacy status '{leg}'; save-state normalises it when it touches the file")
+                continue
+            if len(words) > 2:
+                continue  # prose, not a status token
+            tok = "-".join(words)
+            r.fail(p.relative_to(root), f"status '{tok}' not in {sorted(STATUS_OK)}")
 
     index = root / ".memory/INDEX.md"
     if has_memory and not index.is_file():

@@ -8,7 +8,7 @@
       "name": "dna",
       "source": "./plugins/dna",
       "description": "Core workflow: init a domain, agentize a project, save/refresh state, hand off between sessions. Skills are invoked as /dna:<skill>.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "productivity",
       "tags": ["agents", "context-engineering", "handoff", "state"]
     },

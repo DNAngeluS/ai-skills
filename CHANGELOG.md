@@ -11,6 +11,11 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
+- `dna` plugin version 0.1.0 -> 0.1.1 (adopt mode, validator status fix), in both `plugin.json` and `marketplace.json`.
+
+- Adopt mode for `agentize` and `domain-init` (`agentize/references/adopt.md`): a node that already has `.agents/status.md` gets the `dna:layer` marker, a missing `.memory/INDEX.md` (generator-owned shards listed, never edited) and a CLAUDE.md pointer; no content is rewritten and oversized status is left to `save-state`. Previously both skills stopped at step 1. Found by running domain-init on Crytek (25 KB status). Independent adopt runs on scratch copies of FirstPersonShooter and the Crytek domain level (originals read-only): only the marker line and the index/pointer files differed, the index named the real generator (`crytek_index.py`), and findings were folded in (every `.md` file needs its own index row, never replace an existing INDEX, partial generator ownership, case-collision with `index.json`, pointer test, no-child-table and symlink/worktree reporting, session-start budget effect).
+- Validator status check reads only the `**Status:**` value, ignores prose, treats known legacy words (drafted, planned, open, fixed, superseded, ...) as WARN instead of FAIL, and accepts a trailing date. Crytek FAILs 57 -> 41 with 9 WARNs, all remaining FAILs genuine size or header problems.
+
 - `dna` plugin version 0.0.1 -> 0.1.0: ten skills (status, save-state, handoff, agentize, domain-init, crew, ship, plan, export-context, review-board) plus opt-in hooks. Installed plugins only update when this number changes, so bump it on each release. Bumped in both `plugin.json` and the `marketplace.json` entry; keep them equal.
 
 - `AGENTS.md` carries the `<!-- dna:layer v1 -->` marker so the hooks act in this repo; `CLAUDE.md` trimmed under the tiny budget and its stale install instructions (old top-level `skills/` symlinks) replaced with `--plugin-dir` / marketplace install.
