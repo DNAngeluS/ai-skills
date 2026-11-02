@@ -1,0 +1,8 @@
+# Owner-installed third-party skills (tracked upstream via marketplace.json, never vendored)
+.agents/skills/
+.claude/
+skills-lock.json
+
+# Python
+__pycache__/
+*.pyc

@@ -1,0 +1,26 @@
+{
+  "name": "ai-skills",
+  "version": "0.0.1",
+  "description": "A set of AI skill I gather or created.",
+  "keywords": [
+    "ai",
+    "skills",
+    "agents",
+    "collection"
+  ],
+  "homepage": "https://github.com/DNAngeluS/ai-skills#readme",
+  "bugs": {
+    "url": "https://github.com/DNAngeluS/ai-skills/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DNAngeluS/ai-skills.git"
+  },
+  "license": "MIT",
+  "author": "DNAngeluS, Claude, Codex, Others",
+  "type": "commonjs",
+  "main": "AGENTS.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

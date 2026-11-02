@@ -1,0 +1,24 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "dnangelus",
+  "description": "DNAngeluS skills: lightweight context engineering for research, POC and tooling work. Plugin prefixes are domains (dna, pla, ...).",
+  "owner": { "name": "DNAngeluS", "url": "https://github.com/DNAngeluS" },
+  "plugins": [
+    {
+      "name": "dna",
+      "source": "./plugins/dna",
+      "description": "Core workflow: init a domain, agentize a project, save/refresh state, hand off between sessions. Skills are invoked as /dna:<skill>.",
+      "version": "0.0.1",
+      "category": "productivity",
+      "tags": ["agents", "context-engineering", "handoff", "state"]
+    },
+    {
+      "name": "mattpocock-skills",
+      "source": { "source": "github", "repo": "mattpocock/skills" },
+      "description": "Matt Pocock's agent skills (grilling, spec/ticket flows, TDD...). Third party, tracked from upstream, never vendored.",
+      "category": "engineering",
+      "homepage": "https://github.com/mattpocock/skills",
+      "tags": ["third-party", "ext"]
+    }
+  ]
+}
