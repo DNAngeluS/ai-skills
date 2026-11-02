@@ -11,6 +11,8 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
+- Skill `dna:domain-init`: domain layer for a folder of projects (router `AGENTS.md`, status table with one row per child, `.memory/INDEX.md` and one card per child). Reads children, never writes into them; reuses agentize's no-loss rules. One independent run on a scratch copy of a six-child folder (children untouched by checksum, validator FAIL to OK); findings folded in (child and grouping detection, dormancy vs one-row-per-child, layer classes, card header and unknown-purpose rule, existing INDEX handling).
+
 - Skill `dna:agentize` (+ `references/agents-template.md`): gives an existing project the tiny layer (router `AGENTS.md`, thin `CLAUDE.md` pointer, `.agents/status.md` seeded from README and git, inferred facts listed as open questions). Restructures a long `AGENTS.md` into a router after archiving the original verbatim to `.agents/archive/`. One independent run on a scratch copy of a real project (existing stub AGENTS.md/CLAUDE.md) passed validator 1 FAIL to 0; its findings were folded in (keep-branch appends routes and commands, strays left alone, language rule, CLAUDE.md pointer wording). A second run on a bloated 8.6 KB AGENTS.md (Crytek SandboxLLM copy) lost no text; its findings added a rule definition, a make-room order, the standard-stage target, an 8 KB budget for standard nodes and fixed archive wording.
 
 - Skill `dna:handoff` (living + directional handoffs; write and consume modes; `references/templates.md`),

@@ -85,6 +85,7 @@ here counts as an incomplete change.
 | `dna:save-state` | draft | Lands session results into status/epic/handoff/memory; commits only on request (`plugins/dna/skills/save-state`) | layer contract |
 | `dna:handoff` | draft | Write/consume living and directional handoffs in `.agents/handoffs/`; single writer, receiver archives (`plugins/dna/skills/handoff`) | layer contract |
 | `dna:agentize` | draft | Add the tiny layer to an existing project: router AGENTS.md (original archived), CLAUDE.md pointer, seeded status (`plugins/dna/skills/agentize`) | layer contract |
+| `dna:domain-init` | draft | Domain layer for a folder of projects: status table, child cards, index; read-only on children (`plugins/dna/skills/domain-init`) | layer contract, agentize |
 
 Build order for the rest: [ROADMAP.md](ROADMAP.md). Plugins: `dna`, ext `mattpocock-skills`.
 
