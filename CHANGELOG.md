@@ -11,6 +11,10 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ### Added
 
+- `dna` plugin version 0.1.1 -> 0.1.2 (save-state gaps), in both `plugin.json` and `marketplace.json`.
+
+- `save-state` step 7 gains four rules found when the Crytek domain status (25 KB) was trimmed in real use: oversized status goes verbatim to `.agents/archive/status-before-trim-<date>.md` with a "may be stale" `when:` header and the trim is reported for review; epic tables past about 25 rows archive older `done` rows; legacy status words are never dropped in a status-only pass; and when the router or INDEX alone overflows the 12 KB session-start set, report byte counts and candidates instead of cutting them.
+
 - `dna` plugin version 0.1.0 -> 0.1.1 (adopt mode, validator status fix), in both `plugin.json` and `marketplace.json`.
 
 - Adopt mode for `agentize` and `domain-init` (`agentize/references/adopt.md`): a node that already has `.agents/status.md` gets the `dna:layer` marker, a missing `.memory/INDEX.md` (generator-owned shards listed, never edited) and a CLAUDE.md pointer; no content is rewritten and oversized status is left to `save-state`. Previously both skills stopped at step 1. Found by running domain-init on Crytek (25 KB status). Independent adopt runs on scratch copies of FirstPersonShooter and the Crytek domain level (originals read-only): only the marker line and the index/pointer files differed, the index named the real generator (`crytek_index.py`), and findings were folded in (every `.md` file needs its own index row, never replace an existing INDEX, partial generator ownership, case-collision with `index.json`, pointer test, no-child-table and symlink/worktree reporting, session-start budget effect).

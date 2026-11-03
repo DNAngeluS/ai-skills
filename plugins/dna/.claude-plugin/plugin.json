@@ -1,7 +1,7 @@
 {
   "name": "dna",
   "description": "DNAngeluS core workflow skills: domain init, project agentize, save state, handoff.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": { "name": "DNAngeluS", "url": "https://github.com/DNAngeluS" },
   "homepage": "https://github.com/DNAngeluS/ai-skills",
   "repository": "https://github.com/DNAngeluS/ai-skills",
