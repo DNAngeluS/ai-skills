@@ -1,6 +1,6 @@
 {
   "name": "dna",
-  "description": "DNAngeluS core workflow skills: domain init, project agentize, save state, handoff.",
+  "description": "DNAngeluS core workflow skills: status, save-state, handoff, agentize, domain-init, plan, crew, ship, export-context, review-board.",
   "version": "0.1.2",
   "author": { "name": "DNAngeluS", "url": "https://github.com/DNAngeluS" },
   "homepage": "https://github.com/DNAngeluS/ai-skills",

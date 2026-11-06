@@ -9,6 +9,10 @@ Entries record **what changed**; the reasoning behind a decision goes in
 
 ## [Unreleased]
 
+### Changed
+
+- `plugins/dna/.claude-plugin/plugin.json` description now lists all ten skills instead of the original four (domain init, agentize, save state, handoff). Description only; version stays 0.1.2.
+
 ### Added
 
 - `dna` plugin version 0.1.1 -> 0.1.2 (save-state gaps), in both `plugin.json` and `marketplace.json`.
